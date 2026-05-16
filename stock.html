@@ -1,320 +1,77 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SoundHub — Control de Stock</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sonara · Inventario</title>
+<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-<div class="app-layout">
-
-  <!-- SIDEBAR -->
+<div class="app">
   <aside class="sidebar">
-    <div class="sidebar-logo">
-      <div class="logo-icon">🎵</div>
-      <span class="logo-name">SOUND<span>HUB</span></span>
+    <div class="brand">
+      <div class="brand-logo">S</div>
+      <div><div class="brand-name">Sonara</div><div class="brand-sub">Music OS</div></div>
     </div>
-    <nav class="sidebar-nav">
-      <p class="nav-section">Principal</p>
-      <a href="dashboard.html"     class="nav-item"><span class="nav-ico">📊</span><span>Dashboard</span></a>
-      <a href="stock.html"         class="nav-item active"><span class="nav-ico">📦</span><span>Stock</span></a>
-      <a href="perfil.html"        class="nav-item"><span class="nav-ico">🎤</span><span>Perfil Artista</span></a>
-      <a href="configuracion.html" class="nav-item"><span class="nav-ico">⚙️</span><span>Configuración</span></a>
-      <p class="nav-section">Gestión</p>
-      <a href="eventos.html"       class="nav-item"><span class="nav-ico">📅</span><span>Eventos</span></a>
-      <a href="reservas.html"      class="nav-item"><span class="nav-ico">🎟️</span><span>Reservas</span></a>
-      <a href="historial.html"     class="nav-item"><span class="nav-ico">🕐</span><span>Historial</span></a>
-      <a href="catalogo.html"      class="nav-item"><span class="nav-ico">🎶</span><span>Catálogo</span></a>
+    <nav class="nav">
+      <div class="nav-section">Principal</div>
+      <a href="dashboard.html"><span class="icon">◐</span> Dashboard</a>
+      <a href="catalogo.html"><span class="icon">♪</span> Catálogo</a>
+      <a href="detalle.html"><span class="icon">★</span> Ficha de Detalle</a>
+      <div class="nav-section">Gestión</div>
+      <a href="stock.html" class="active"><span class="icon">▦</span> Inventario</a>
+      <a href="reservas.html"><span class="icon">✎</span> Reservas</a>
+      <a href="calendario.html"><span class="icon">▣</span> Calendario</a>
+      <a href="historial.html"><span class="icon">⟲</span> Historial</a>
+      <div class="nav-section">Sistema</div>
+      <a href="configuracion.html"><span class="icon">⚙</span> Configuración</a>
     </nav>
-    <div class="sidebar-footer">
-      <div class="avatar av-sm">AD</div>
-      <div><p class="user-name">Admin</p><p class="user-role">SoundHub</p></div>
-    </div>
   </aside>
 
-  <!-- MAIN -->
-  <div class="main-content">
-    <header class="topbar">
-      <h1 class="topbar-title">Control de Stock</h1>
-      <div class="topbar-right">
-        <div class="search-bar" style="width:220px;">
-          <span class="ico">🔍</span>
-          <input type="text" id="searchInput" placeholder="Buscar producto...">
-        </div>
-        <button class="btn btn-primary btn-sm" onclick="document.getElementById('modalAgregar').classList.remove('hidden')">+ Agregar item</button>
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <div class="page-title">Control de Stock</div>
+        <div class="page-sub">Inventario de vinilos, CDs y mercancía</div>
       </div>
-    </header>
-
-    <main class="page anim-fade">
-      <p class="page-subtitle">Inventario de productos físicos y licencias digitales disponibles en el sistema.</p>
-
-      <!-- STATS -->
-      <div class="stats-grid">
-        <div class="stat-card"><p class="stat-lbl">Total de items</p><p class="stat-val">1,204</p><span class="stat-change up">▲ 5% este mes</span></div>
-        <div class="stat-card"><p class="stat-lbl">Vinilos en stock</p><p class="stat-val">380</p><span class="stat-change down">▼ 3% baja</span></div>
-        <div class="stat-card"><p class="stat-lbl">Licencias digitales</p><p class="stat-val">694</p><span class="stat-change up">▲ 12%</span></div>
-        <div class="stat-card"><p class="stat-lbl">Stock crítico</p><p class="stat-val" style="color:var(--color-danger);">7</p><span class="stat-change down">Requieren reposición</span></div>
-      </div>
-
-      <!-- FILTROS -->
-      <div class="card mb-6" style="margin-bottom:var(--sp6);">
-        <div class="flex items-center gap-4" style="flex-wrap:wrap;">
-          <select class="form-control" id="filterCategoria" style="width:auto;">
-            <option value="">Todas las categorías</option>
-            <option value="Vinilo">Vinilo</option>
-            <option value="CD">CD</option>
-            <option value="Digital">Digital</option>
-            <option value="Merchandising">Merchandising</option>
-          </select>
-          <select class="form-control" id="filterEstado" style="width:auto;">
-            <option value="">Todos los estados</option>
-            <option value="Disponible">Disponible</option>
-            <option value="Bajo Stock">Bajo Stock</option>
-            <option value="Sin Stock">Sin Stock</option>
-          </select>
-          <button class="btn btn-secondary btn-sm" onclick="filtrarTabla()">Filtrar</button>
-          <button class="btn btn-ghost btn-sm" onclick="limpiarFiltros()">Limpiar</button>
-        </div>
-      </div>
-
-      <!-- TABLA DE STOCK -->
-      <div class="card">
-        <div class="card-head">
-          <h4 class="card-title">Inventario</h4>
-          <div class="flex gap-3">
-            <span class="badge badge-success">● Disponible</span>
-            <span class="badge badge-warning">● Bajo Stock</span>
-            <span class="badge badge-danger">● Sin Stock</span>
-          </div>
-        </div>
-
-        <div class="table-wrap">
-          <table id="tablaStock">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Producto</th>
-                <th>Artista / Álbum</th>
-                <th>Categoría</th>
-                <th>Cantidad</th>
-                <th>Capacidad</th>
-                <th>Stock</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="stockBody">
-              <tr>
-                <td>#001</td>
-                <td class="strong">Abbey Road (LP)</td>
-                <td>The Beatles</td>
-                <td><span class="badge badge-accent">Vinilo</span></td>
-                <td>45</td>
-                <td>100</td>
-                <td><div class="bar-track" style="width:100px;"><div class="bar-fill bar-warning" style="width:45%;"></div></div></td>
-                <td><span class="badge badge-warning">Bajo Stock</span></td>
-                <td><button class="btn btn-ghost btn-sm" onclick="editarItem(this)">✏️</button> <button class="btn btn-ghost btn-sm" onclick="eliminarFila(this)">🗑️</button></td>
-              </tr>
-              <tr>
-                <td>#002</td>
-                <td class="strong">Discovery (LP)</td>
-                <td>Daft Punk</td>
-                <td><span class="badge badge-accent">Vinilo</span></td>
-                <td>120</td>
-                <td>150</td>
-                <td><div class="bar-track" style="width:100px;"><div class="bar-fill bar-success" style="width:80%;"></div></div></td>
-                <td><span class="badge badge-success">Disponible</span></td>
-                <td><button class="btn btn-ghost btn-sm" onclick="editarItem(this)">✏️</button> <button class="btn btn-ghost btn-sm" onclick="eliminarFila(this)">🗑️</button></td>
-              </tr>
-              <tr>
-                <td>#003</td>
-                <td class="strong">Licence Digital — Rock Hits</td>
-                <td>Varios</td>
-                <td><span class="badge badge-cyan">Digital</span></td>
-                <td>500</td>
-                <td>500</td>
-                <td><div class="bar-track" style="width:100px;"><div class="bar-fill bar-cyan" style="width:100%;"></div></div></td>
-                <td><span class="badge badge-success">Disponible</span></td>
-                <td><button class="btn btn-ghost btn-sm" onclick="editarItem(this)">✏️</button> <button class="btn btn-ghost btn-sm" onclick="eliminarFila(this)">🗑️</button></td>
-              </tr>
-              <tr>
-                <td>#004</td>
-                <td class="strong">Kind of Blue (CD)</td>
-                <td>Miles Davis</td>
-                <td><span class="badge badge-neutral">CD</span></td>
-                <td>2</td>
-                <td>50</td>
-                <td><div class="bar-track" style="width:100px;"><div class="bar-fill bar-danger" style="width:4%;"></div></div></td>
-                <td><span class="badge badge-danger">Sin Stock</span></td>
-                <td><button class="btn btn-ghost btn-sm" onclick="editarItem(this)">✏️</button> <button class="btn btn-ghost btn-sm" onclick="eliminarFila(this)">🗑️</button></td>
-              </tr>
-              <tr>
-                <td>#005</td>
-                <td class="strong">Remera Tour 2024</td>
-                <td>SoundHub Merch</td>
-                <td><span class="badge badge-neutral">Merchandising</span></td>
-                <td>88</td>
-                <td>200</td>
-                <td><div class="bar-track" style="width:100px;"><div class="bar-fill bar-success" style="width:44%;"></div></div></td>
-                <td><span class="badge badge-success">Disponible</span></td>
-                <td><button class="btn btn-ghost btn-sm" onclick="editarItem(this)">✏️</button> <button class="btn btn-ghost btn-sm" onclick="eliminarFila(this)">🗑️</button></td>
-              </tr>
-              <tr>
-                <td>#006</td>
-                <td class="strong">The Dark Side of the Moon (LP)</td>
-                <td>Pink Floyd</td>
-                <td><span class="badge badge-accent">Vinilo</span></td>
-                <td>12</td>
-                <td>80</td>
-                <td><div class="bar-track" style="width:100px;"><div class="bar-fill bar-warning" style="width:15%;"></div></div></td>
-                <td><span class="badge badge-warning">Bajo Stock</span></td>
-                <td><button class="btn btn-ghost btn-sm" onclick="editarItem(this)">✏️</button> <button class="btn btn-ghost btn-sm" onclick="eliminarFila(this)">🗑️</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </main>
-
-    <!-- MODAL AGREGAR -->
-    <div class="modal-overlay hidden" id="modalAgregar">
-      <div class="modal">
-        <div class="modal-head">
-          <h3 class="modal-title">Agregar Item</h3>
-          <button class="modal-close" onclick="document.getElementById('modalAgregar').classList.add('hidden')">✕</button>
-        </div>
-        <form onsubmit="agregarItem(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Nombre del producto</label>
-              <input type="text" class="form-control" id="inputNombre" placeholder="Ej: Abbey Road (LP)" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Artista / Álbum</label>
-              <input type="text" class="form-control" id="inputArtista" placeholder="Ej: The Beatles" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Categoría</label>
-              <select class="form-control" id="inputCategoria">
-                <option>Vinilo</option>
-                <option>CD</option>
-                <option>Digital</option>
-                <option>Merchandising</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Cantidad disponible</label>
-              <input type="number" class="form-control" id="inputCantidad" placeholder="0" min="0" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Capacidad máxima</label>
-            <input type="number" class="form-control" id="inputCapacidad" placeholder="100" min="1" required>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" onclick="document.getElementById('modalAgregar').classList.add('hidden')">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Guardar item</button>
-          </div>
-        </form>
+      <div style="display:flex; gap:12px;">
+        <button class="btn">Exportar CSV</button>
+        <button class="btn btn-primary">+ Nuevo producto</button>
       </div>
     </div>
 
-    <!-- PLAYER BAR -->
-    <div class="player-bar">
-      <div class="player-track">
-        <div class="player-art">🎵</div>
-        <div class="player-info"><p class="track-name">Midnight Drive</p><p class="track-artist">The Midnight</p></div>
-      </div>
-      <div class="player-center">
-        <div class="player-btns">
-          <button class="pbtn">⏮</button>
-          <button class="pbtn play" id="playBtn">▶</button>
-          <button class="pbtn">⏭</button>
-        </div>
-        <div class="progress-row">
-          <span class="time">1:24</span>
-          <div class="progress-track"><div class="progress-fill" style="width:38%;"></div></div>
-          <span class="time">3:47</span>
-        </div>
-      </div>
-      <div class="player-vol"><span>🔊</span><input type="range" class="vol-slider" min="0" max="100" value="70"></div>
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-label">Total productos</div><div class="stat-value">3,482</div><div class="stat-trend">↑ 124 esta semana</div></div>
+      <div class="stat"><div class="stat-label">Stock bajo</div><div class="stat-value">28</div><div class="stat-trend down">Requiere atención</div></div>
+      <div class="stat"><div class="stat-label">Agotados</div><div class="stat-value">12</div><div class="stat-trend down">↓ 4 vs. semana</div></div>
+      <div class="stat"><div class="stat-label">Valor total</div><div class="stat-value">$182K</div><div class="stat-trend">↑ 5.7%</div></div>
     </div>
-  </div>
+
+    <div class="filter-bar">
+      <div class="chip active">Todos</div>
+      <div class="chip">Vinilos</div>
+      <div class="chip">CDs</div>
+      <div class="chip">Cassettes</div>
+      <div class="chip">Mercancía</div>
+      <div class="chip">Stock bajo</div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>SKU</th><th>Producto</th><th>Formato</th><th>Stock</th><th>Precio</th><th>Estado</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>VNL-0421</td><td>Eclipse Nocturno · Lúmen</td><td>Vinilo 12"</td><td>48</td><td>$32.00</td><td><span class="badge badge-green">En stock</span></td><td><button class="btn btn-ghost">Editar</button></td></tr>
+          <tr><td>CD-0188</td><td>Vapor & Vinilo · Costa Sur</td><td>CD</td><td>12</td><td>$14.00</td><td><span class="badge badge-yellow">Bajo</span></td><td><button class="btn btn-ghost">Editar</button></td></tr>
+          <tr><td>VNL-0392</td><td>Frecuencia 432 · Nokto</td><td>Vinilo 12"</td><td>0</td><td>$36.00</td><td><span class="badge badge-red">Agotado</span></td><td><button class="btn btn-ghost">Editar</button></td></tr>
+          <tr><td>CST-0044</td><td>Cinta Magnética · Helia</td><td>Cassette</td><td>27</td><td>$11.00</td><td><span class="badge badge-green">En stock</span></td><td><button class="btn btn-ghost">Editar</button></td></tr>
+          <tr><td>MRC-0102</td><td>Camiseta Tour 2026</td><td>Mercancía</td><td>156</td><td>$28.00</td><td><span class="badge badge-green">En stock</span></td><td><button class="btn btn-ghost">Editar</button></td></tr>
+          <tr><td>VNL-0417</td><td>Resonancia · Iván Vela</td><td>Vinilo 7"</td><td>4</td><td>$22.00</td><td><span class="badge badge-yellow">Bajo</span></td><td><button class="btn btn-ghost">Editar</button></td></tr>
+          <tr><td>CD-0203</td><td>Marea Alta · Saudê</td><td>CD doble</td><td>89</td><td>$24.00</td><td><span class="badge badge-green">En stock</span></td><td><button class="btn btn-ghost">Editar</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
 </div>
-
-<script>
-document.getElementById('playBtn').addEventListener('click', function() {
-  this.textContent = this.textContent === '▶' ? '⏸' : '▶';
-});
-
-// Busqueda en tiempo real
-document.getElementById('searchInput').addEventListener('input', function() {
-  const q = this.value.toLowerCase();
-  document.querySelectorAll('#stockBody tr').forEach(row => {
-    row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
-  });
-});
-
-// Filtrar
-function filtrarTabla() {
-  const cat = document.getElementById('filterCategoria').value;
-  const est = document.getElementById('filterEstado').value;
-  document.querySelectorAll('#stockBody tr').forEach(row => {
-    const txt = row.textContent;
-    const okCat = !cat || txt.includes(cat);
-    const okEst = !est || txt.includes(est);
-    row.style.display = (okCat && okEst) ? '' : 'none';
-  });
-}
-
-function limpiarFiltros() {
-  document.getElementById('filterCategoria').value = '';
-  document.getElementById('filterEstado').value = '';
-  document.querySelectorAll('#stockBody tr').forEach(r => r.style.display = '');
-}
-
-// Agregar item
-let idCounter = 7;
-function agregarItem(e) {
-  e.preventDefault();
-  const nombre = document.getElementById('inputNombre').value;
-  const artista = document.getElementById('inputArtista').value;
-  const cat = document.getElementById('inputCategoria').value;
-  const cant = parseInt(document.getElementById('inputCantidad').value);
-  const cap = parseInt(document.getElementById('inputCapacidad').value);
-  const pct = Math.round((cant / cap) * 100);
-  const estado = pct > 30 ? 'Disponible' : pct > 10 ? 'Bajo Stock' : 'Sin Stock';
-  const clsBadge = estado === 'Disponible' ? 'badge-success' : estado === 'Bajo Stock' ? 'badge-warning' : 'badge-danger';
-  const clsBar = estado === 'Disponible' ? 'bar-success' : estado === 'Bajo Stock' ? 'bar-warning' : 'bar-danger';
-  const catBadge = cat === 'Vinilo' ? 'badge-accent' : cat === 'Digital' ? 'badge-cyan' : 'badge-neutral';
-
-  const row = document.createElement('tr');
-  row.innerHTML = `
-    <td>#00${idCounter++}</td>
-    <td class="strong">${nombre}</td>
-    <td>${artista}</td>
-    <td><span class="badge ${catBadge}">${cat}</span></td>
-    <td>${cant}</td>
-    <td>${cap}</td>
-    <td><div class="bar-track" style="width:100px;"><div class="bar-fill ${clsBar}" style="width:${pct}%;"></div></div></td>
-    <td><span class="badge ${clsBadge}">${estado}</span></td>
-    <td><button class="btn btn-ghost btn-sm" onclick="editarItem(this)">✏️</button> <button class="btn btn-ghost btn-sm" onclick="eliminarFila(this)">🗑️</button></td>
-  `;
-  document.getElementById('stockBody').prepend(row);
-  document.getElementById('modalAgregar').classList.add('hidden');
-  e.target.reset();
-}
-
-function eliminarFila(btn) {
-  if (confirm('¿Eliminar este item del inventario?')) btn.closest('tr').remove();
-}
-
-function editarItem(btn) {
-  alert('Funcionalidad de edición: abre el formulario con los datos precargados.');
-}
-</script>
 </body>
 </html>

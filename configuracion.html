@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sonara · Configuración</title>
+<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">S</div>
+      <div><div class="brand-name">Sonara</div><div class="brand-sub">Music OS</div></div>
+    </div>
+    <nav class="nav">
+      <div class="nav-section">Principal</div>
+      <a href="dashboard.html"><span class="icon">◐</span> Dashboard</a>
+      <a href="catalogo.html"><span class="icon">♪</span> Catálogo</a>
+      <a href="detalle.html"><span class="icon">★</span> Ficha de Detalle</a>
+      <div class="nav-section">Gestión</div>
+      <a href="stock.html"><span class="icon">▦</span> Inventario</a>
+      <a href="reservas.html"><span class="icon">✎</span> Reservas</a>
+      <a href="calendario.html"><span class="icon">▣</span> Calendario</a>
+      <a href="historial.html"><span class="icon">⟲</span> Historial</a>
+      <div class="nav-section">Sistema</div>
+      <a href="configuracion.html" class="active"><span class="icon">⚙</span> Configuración</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <div class="page-title">Configuración del Sistema</div>
+        <div class="page-sub">Preferencias generales y cuenta</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Datos de la cuenta</div>
+        <div class="card-sub">Información del administrador</div>
+        <div class="form-grid">
+          <div class="field"><label>Nombre</label><input value="Alejandro Lúmen" /></div>
+          <div class="field"><label>Apellido</label><input value="Ríos" /></div>
+          <div class="field full"><label>Correo</label><input type="email" value="admin@sonara.fm" /></div>
+          <div class="field"><label>Idioma</label>
+            <select><option>Español</option><option>English</option><option>Português</option></select>
+          </div>
+          <div class="field"><label>Zona horaria</label>
+            <select><option>GMT-3 Buenos Aires</option><option>GMT-5 Bogotá</option><option>GMT+1 Madrid</option></select>
+          </div>
+          <div class="full" style="display:flex; gap:10px; justify-content:flex-end;">
+            <button class="btn">Cancelar</button>
+            <button class="btn btn-primary">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Preferencias</div>
+        <div class="card-sub">Personalización del sistema</div>
+        <div class="settings-list">
+          <div class="row"><div><h4>Modo oscuro</h4><p>Activado por defecto</p></div><div class="toggle on"></div></div>
+          <div class="row"><div><h4>Notificaciones por correo</h4><p>Resumen semanal de actividad</p></div><div class="toggle on"></div></div>
+          <div class="row"><div><h4>Autenticación 2FA</h4><p>Capa extra de seguridad</p></div><div class="toggle"></div></div>
+          <div class="row"><div><h4>Reproducción automática</h4><p>Al abrir un álbum</p></div><div class="toggle on"></div></div>
+          <div class="row"><div><h4>Modo análisis avanzado</h4><p>Métricas detalladas en dashboard</p></div><div class="toggle"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" style="margin-top:28px;">
+      <div class="card">
+        <div class="card-title">Zona de peligro</div>
+        <div class="card-sub">Acciones irreversibles</div>
+        <div class="settings-list">
+          <div class="row"><div><h4>Exportar todos mis datos</h4><p>Descarga un archivo .zip con tu información</p></div><button class="btn">Exportar</button></div>
+          <div class="row"><div><h4 style="color:var(--danger)">Eliminar cuenta</h4><p>Esta acción no se puede deshacer</p></div><button class="btn" style="border-color:var(--danger); color:var(--danger)">Eliminar</button></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

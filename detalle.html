@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sonara · Ficha de Detalle</title>
+<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">S</div>
+      <div><div class="brand-name">Sonara</div><div class="brand-sub">Music OS</div></div>
+    </div>
+    <nav class="nav">
+      <div class="nav-section">Principal</div>
+      <a href="dashboard.html"><span class="icon">◐</span> Dashboard</a>
+      <a href="catalogo.html"><span class="icon">♪</span> Catálogo</a>
+      <a href="detalle.html" class="active"><span class="icon">★</span> Ficha de Detalle</a>
+      <div class="nav-section">Gestión</div>
+      <a href="stock.html"><span class="icon">▦</span> Inventario</a>
+      <a href="reservas.html"><span class="icon">✎</span> Reservas</a>
+      <a href="calendario.html"><span class="icon">▣</span> Calendario</a>
+      <a href="historial.html"><span class="icon">⟲</span> Historial</a>
+      <div class="nav-section">Sistema</div>
+      <a href="configuracion.html"><span class="icon">⚙</span> Configuración</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <div class="page-title">Ficha del Artista</div>
+        <div class="page-sub">Perfil completo y discografía</div>
+      </div>
+      <div style="display:flex; gap:12px;"><button class="btn">Compartir</button><button class="btn btn-primary">Editar perfil</button></div>
+    </div>
+
+    <div class="profile-hero">
+      <div class="profile-cover">♪</div>
+      <div class="profile-info">
+        <h2>Lúmen</h2>
+        <p>Indie · Electrónica · Originarios de Buenos Aires, Argentina</p>
+        <div class="profile-tags">
+          <span class="badge badge-blue">Verificado</span>
+          <span class="badge badge-green">Activo</span>
+          <span class="badge badge-yellow">Top 10</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-label">Oyentes mensuales</div><div class="stat-value">847K</div><div class="stat-trend">↑ 14%</div></div>
+      <div class="stat"><div class="stat-label">Álbumes</div><div class="stat-value">7</div><div class="stat-trend">2 EPs incluidos</div></div>
+      <div class="stat"><div class="stat-label">Seguidores</div><div class="stat-value">126K</div><div class="stat-trend">↑ 2.3K esta semana</div></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Biografía</div>
+        <div class="card-sub">Sobre el artista</div>
+        <p style="color:var(--text-soft); line-height:1.7;">
+          Lúmen es un proyecto musical que mezcla atmósferas electrónicas con instrumentación orgánica.
+          Desde su debut en 2019 con <em>Aurora Boreal</em>, ha consolidado un sonido propio caracterizado
+          por texturas analógicas, sintetizadores modulares y voces etéreas. Su último trabajo,
+          <em>Eclipse Nocturno</em>, explora la noche urbana como territorio emocional.
+        </p>
+        <div style="margin-top:18px; display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="chip">Sintetizadores</span>
+          <span class="chip">Voces etéreas</span>
+          <span class="chip">Texturas analógicas</span>
+          <span class="chip">Producción propia</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Discografía</div>
+        <div class="card-sub">Trabajos publicados</div>
+        <div class="timeline" style="margin-top:8px;">
+          <div class="t-item"><div class="t-time">2025</div><div class="t-title">Eclipse Nocturno</div><div class="t-desc">Álbum · 12 pistas</div></div>
+          <div class="t-item"><div class="t-time">2023</div><div class="t-title">Habitaciones</div><div class="t-desc">EP · 5 pistas</div></div>
+          <div class="t-item"><div class="t-time">2022</div><div class="t-title">Mar de Fondo</div><div class="t-desc">Álbum · 10 pistas</div></div>
+          <div class="t-item"><div class="t-time">2019</div><div class="t-title">Aurora Boreal</div><div class="t-desc">Álbum debut · 9 pistas</div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
