@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sonara · Reservas</title>
+<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">S</div>
+      <div><div class="brand-name">Sonara</div><div class="brand-sub">Music OS</div></div>
+    </div>
+    <nav class="nav">
+      <div class="nav-section">Principal</div>
+      <a href="dashboard.html"><span class="icon">◐</span> Dashboard</a>
+      <a href="catalogo.html"><span class="icon">♪</span> Catálogo</a>
+      <a href="detalle.html"><span class="icon">★</span> Ficha de Detalle</a>
+      <div class="nav-section">Gestión</div>
+      <a href="stock.html"><span class="icon">▦</span> Inventario</a>
+      <a href="reservas.html" class="active"><span class="icon">✎</span> Reservas</a>
+      <a href="calendario.html"><span class="icon">▣</span> Calendario</a>
+      <a href="historial.html"><span class="icon">⟲</span> Historial</a>
+      <div class="nav-section">Sistema</div>
+      <a href="configuracion.html"><span class="icon">⚙</span> Configuración</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <div class="page-title">Formulario de Reservas</div>
+        <div class="page-sub">Reservar entradas, sesiones de estudio o vinilos</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Nueva reserva</div>
+        <div class="card-sub">Completa los datos para confirmar</div>
+        <form class="form-grid" onsubmit="event.preventDefault(); alert('Reserva enviada ✓')">
+          <div class="field"><label>Nombre completo</label><input required placeholder="Tu nombre" /></div>
+          <div class="field"><label>Correo electrónico</label><input type="email" required placeholder="tu@correo.com" /></div>
+          <div class="field"><label>Tipo de reserva</label>
+            <select>
+              <option>Entrada para concierto</option>
+              <option>Sesión de estudio</option>
+              <option>Apartar vinilo</option>
+              <option>Meet & greet</option>
+            </select>
+          </div>
+          <div class="field"><label>Evento / Producto</label>
+            <select>
+              <option>Tour Costa Sur — Mendoza</option>
+              <option>Festival Resonancia 2026</option>
+              <option>Eclipse Nocturno · Vinilo edición limitada</option>
+              <option>Sesión nocturna · Estudio La Boca</option>
+            </select>
+          </div>
+          <div class="field"><label>Fecha</label><input type="date" /></div>
+          <div class="field"><label>Cantidad</label><input type="number" value="1" min="1" max="10" /></div>
+          <div class="field full"><label>Notas adicionales</label><textarea placeholder="Requerimientos especiales, accesibilidad, etc."></textarea></div>
+          <div class="field"><label>Método de pago</label>
+            <select><option>Tarjeta de crédito</option><option>Transferencia</option><option>Mercado Pago</option></select>
+          </div>
+          <div class="field"><label>Código promocional</label><input placeholder="Opcional" /></div>
+          <div class="full" style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+            <span style="color:var(--text-dim); font-size:13px;">Total estimado: <strong style="color:var(--text)">$48.00 USD</strong></span>
+            <div style="display:flex; gap:10px;">
+              <button type="reset" class="btn">Limpiar</button>
+              <button type="submit" class="btn btn-primary">Confirmar reserva</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Reservas recientes</div>
+        <div class="card-sub">Últimas confirmaciones</div>
+        <div class="timeline">
+          <div class="t-item"><div class="t-time">Hace 2 min</div><div class="t-title">Camila R. · Tour Costa Sur</div><div class="t-desc">2 entradas · Confirmado</div></div>
+          <div class="t-item"><div class="t-time">Hace 18 min</div><div class="t-title">Diego F. · Vinilo Eclipse</div><div class="t-desc">1 unidad · Pago pendiente</div></div>
+          <div class="t-item"><div class="t-time">Hoy 14:02</div><div class="t-title">Lucía M. · Festival Resonancia</div><div class="t-desc">4 entradas · Confirmado</div></div>
+          <div class="t-item"><div class="t-time">Hoy 11:48</div><div class="t-title">Mateo V. · Sesión estudio</div><div class="t-desc">1 hora · Confirmado</div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

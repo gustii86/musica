@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sonara · Calendario de Eventos</title>
+<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">S</div>
+      <div><div class="brand-name">Sonara</div><div class="brand-sub">Music OS</div></div>
+    </div>
+    <nav class="nav">
+      <div class="nav-section">Principal</div>
+      <a href="dashboard.html"><span class="icon">◐</span> Dashboard</a>
+      <a href="catalogo.html"><span class="icon">♪</span> Catálogo</a>
+      <a href="detalle.html"><span class="icon">★</span> Ficha de Detalle</a>
+      <div class="nav-section">Gestión</div>
+      <a href="stock.html"><span class="icon">▦</span> Inventario</a>
+      <a href="reservas.html"><span class="icon">✎</span> Reservas</a>
+      <a href="calendario.html" class="active"><span class="icon">▣</span> Calendario</a>
+      <a href="historial.html"><span class="icon">⟲</span> Historial</a>
+      <div class="nav-section">Sistema</div>
+      <a href="configuracion.html"><span class="icon">⚙</span> Configuración</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <div class="page-title">Calendario de Eventos</div>
+        <div class="page-sub">Conciertos, lanzamientos y sesiones</div>
+      </div>
+      <button class="btn btn-primary">+ Nuevo evento</button>
+    </div>
+
+    <div class="grid-2">
+      <div class="calendar">
+        <div class="cal-head">
+          <div>
+            <div style="font-size:20px; font-weight:700;">Mayo 2026</div>
+            <div style="font-size:13px; color:var(--text-dim);">7 eventos programados</div>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="btn">‹</button>
+            <button class="btn">Hoy</button>
+            <button class="btn">›</button>
+          </div>
+        </div>
+        <div class="cal-grid">
+          <div class="cal-day-name">Lun</div><div class="cal-day-name">Mar</div><div class="cal-day-name">Mié</div>
+          <div class="cal-day-name">Jue</div><div class="cal-day-name">Vie</div><div class="cal-day-name">Sáb</div><div class="cal-day-name">Dom</div>
+
+          <div class="cal-cell dim">27</div><div class="cal-cell dim">28</div><div class="cal-cell dim">29</div>
+          <div class="cal-cell dim">30</div><div class="cal-cell">1</div><div class="cal-cell">2</div><div class="cal-cell">3</div>
+          <div class="cal-cell">4</div><div class="cal-cell">5<div class="ev">Lanzamiento</div></div><div class="cal-cell">6</div>
+          <div class="cal-cell">7</div><div class="cal-cell">8<div class="ev">Show</div></div><div class="cal-cell">9</div><div class="cal-cell">10</div>
+          <div class="cal-cell">11</div><div class="cal-cell">12</div><div class="cal-cell">13</div>
+          <div class="cal-cell">14</div><div class="cal-cell">15<div class="ev">Sesión</div></div><div class="cal-cell today">16<div class="ev">Hoy</div></div><div class="cal-cell">17</div>
+          <div class="cal-cell">18</div><div class="cal-cell">19</div><div class="cal-cell">20<div class="ev">Tour</div></div>
+          <div class="cal-cell">21</div><div class="cal-cell">22<div class="ev">Stream</div></div><div class="cal-cell">23</div><div class="cal-cell">24</div>
+          <div class="cal-cell">25</div><div class="cal-cell">26</div><div class="cal-cell">27</div>
+          <div class="cal-cell">28</div><div class="cal-cell">29<div class="ev">Festival</div></div><div class="cal-cell">30</div><div class="cal-cell">31</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Próximos eventos</div>
+        <div class="card-sub">Esta semana</div>
+        <div class="timeline" style="margin-top:8px;">
+          <div class="t-item"><div class="t-time">Hoy · 21:00</div><div class="t-title">Sesión en vivo · Lúmen</div><div class="t-desc">Estudio La Boca · Streaming abierto</div></div>
+          <div class="t-item"><div class="t-time">Mié 20 · 22:30</div><div class="t-title">Tour Costa Sur — Mendoza</div><div class="t-desc">Sala Independencia · 480/600 entradas</div></div>
+          <div class="t-item"><div class="t-time">Vie 22 · 19:00</div><div class="t-title">Stream listening party</div><div class="t-desc">Lanzamiento de "Frecuencia 432"</div></div>
+          <div class="t-item"><div class="t-time">Vie 29 · 18:00</div><div class="t-title">Festival Resonancia 2026</div><div class="t-desc">Parque Centenario · 12 artistas</div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

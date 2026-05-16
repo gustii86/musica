@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sonara · Historial de Movimientos</title>
+<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">S</div>
+      <div><div class="brand-name">Sonara</div><div class="brand-sub">Music OS</div></div>
+    </div>
+    <nav class="nav">
+      <div class="nav-section">Principal</div>
+      <a href="dashboard.html"><span class="icon">◐</span> Dashboard</a>
+      <a href="catalogo.html"><span class="icon">♪</span> Catálogo</a>
+      <a href="detalle.html"><span class="icon">★</span> Ficha de Detalle</a>
+      <div class="nav-section">Gestión</div>
+      <a href="stock.html"><span class="icon">▦</span> Inventario</a>
+      <a href="reservas.html"><span class="icon">✎</span> Reservas</a>
+      <a href="calendario.html"><span class="icon">▣</span> Calendario</a>
+      <a href="historial.html" class="active"><span class="icon">⟲</span> Historial</a>
+      <div class="nav-section">Sistema</div>
+      <a href="configuracion.html"><span class="icon">⚙</span> Configuración</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <div class="page-title">Historial de Movimientos</div>
+        <div class="page-sub">Registro completo de operaciones</div>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <input class="search" placeholder="Buscar por usuario o acción…" />
+        <button class="btn">Filtrar</button>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <div class="chip active">Todos</div>
+      <div class="chip">Ventas</div>
+      <div class="chip">Reservas</div>
+      <div class="chip">Inventario</div>
+      <div class="chip">Sistema</div>
+      <div class="chip">Errores</div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Fecha</th><th>Usuario</th><th>Acción</th><th>Detalle</th><th>Tipo</th><th>Resultado</th></tr></thead>
+        <tbody>
+          <tr><td>16/05 · 14:32</td><td>Camila R.</td><td>Compra</td><td>Tour Costa Sur · 2 entradas</td><td><span class="badge badge-blue">Venta</span></td><td><span class="badge badge-green">OK</span></td></tr>
+          <tr><td>16/05 · 14:18</td><td>Sistema</td><td>Stock actualizado</td><td>VNL-0421 · -3 unidades</td><td><span class="badge badge-yellow">Inventario</span></td><td><span class="badge badge-green">OK</span></td></tr>
+          <tr><td>16/05 · 13:55</td><td>Diego F.</td><td>Reserva</td><td>Vinilo Eclipse Nocturno</td><td><span class="badge badge-blue">Reserva</span></td><td><span class="badge badge-yellow">Pendiente</span></td></tr>
+          <tr><td>16/05 · 13:40</td><td>Admin</td><td>Edición</td><td>Perfil de "Lúmen" actualizado</td><td><span class="badge badge-yellow">Sistema</span></td><td><span class="badge badge-green">OK</span></td></tr>
+          <tr><td>16/05 · 12:22</td><td>Lucía M.</td><td>Compra</td><td>Festival Resonancia · 4 entradas</td><td><span class="badge badge-blue">Venta</span></td><td><span class="badge badge-green">OK</span></td></tr>
+          <tr><td>16/05 · 11:48</td><td>Mateo V.</td><td>Reserva</td><td>Sesión Estudio La Boca · 1h</td><td><span class="badge badge-blue">Reserva</span></td><td><span class="badge badge-green">OK</span></td></tr>
+          <tr><td>16/05 · 10:30</td><td>Sistema</td><td>Backup automático</td><td>Snapshot diario completado</td><td><span class="badge badge-yellow">Sistema</span></td><td><span class="badge badge-green">OK</span></td></tr>
+          <tr><td>16/05 · 09:14</td><td>Pago Externo</td><td>Pago fallido</td><td>Tarjeta rechazada · Orden #2841</td><td><span class="badge badge-red">Error</span></td><td><span class="badge badge-red">Falló</span></td></tr>
+          <tr><td>15/05 · 22:05</td><td>Admin</td><td>Nuevo álbum</td><td>"Resonancia" · Iván Vela añadido</td><td><span class="badge badge-yellow">Inventario</span></td><td><span class="badge badge-green">OK</span></td></tr>
+          <tr><td>15/05 · 21:42</td><td>Helena T.</td><td>Compra</td><td>Camiseta Tour 2026 · 1 unidad</td><td><span class="badge badge-blue">Venta</span></td><td><span class="badge badge-green">OK</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:18px; color:var(--text-dim); font-size:13px;">
+      <span>Mostrando 10 de 1,284 registros</span>
+      <div style="display:flex; gap:6px;">
+        <button class="btn">‹</button>
+        <button class="btn btn-primary">1</button>
+        <button class="btn">2</button>
+        <button class="btn">3</button>
+        <button class="btn">›</button>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
